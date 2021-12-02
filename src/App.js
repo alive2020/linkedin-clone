@@ -7,7 +7,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Login from './Login';
 import { auth } from './firebase';
-import { Widgets } from '@mui/icons-material';
+import Widgets from './Widgets';
 
 function App() {
   const user = useSelector(selectUser);
