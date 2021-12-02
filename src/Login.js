@@ -14,7 +14,7 @@ function Login() {
 
   const loginToApp = (e) => {
     e.preventDefault();
-
+    console.log('click');
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userAuth) => {
