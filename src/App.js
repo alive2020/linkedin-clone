@@ -7,6 +7,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Login from './Login';
 import { auth } from './firebase';
+import { Widgets } from '@mui/icons-material';
 
 function App() {
   const user = useSelector(selectUser);
@@ -37,7 +38,7 @@ function App() {
         <div className='app-body'>
           <Sidebar />
           <Feed />
-          {/* Widgets */}
+          <Widgets />
         </div>
       )}
     </div>

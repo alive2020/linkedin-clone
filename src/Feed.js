@@ -12,11 +12,14 @@ import firebase from 'firebase';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import FlipMove from 'react-flip-move';
+import { useRef } from 'react';
 
 function Feed() {
   const user = useSelector(selectUser);
   const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
+
+  const myRef = useRef('');
 
   useEffect(() => {
     db.collection('posts')
@@ -33,16 +36,16 @@ function Feed() {
 
   const sendPost = (e) => {
     e.preventDefault();
-
     db.collection('posts').add({
       name: user.displayName,
       description: user.email,
-      message: input,
+      message: myRef.current.value,
       photoUrl: user.photoUrl || '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
-    setInput('');
+    // setInput('');
+    myRef.current.value = '';
   };
 
   return (
@@ -52,8 +55,9 @@ function Feed() {
           <CreateIcon />
           <form>
             <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+              // value={input}
+              // onChange={(e) => setInput(e.target.value)}
+              ref={myRef}
               type='text'
             />
             <button onClick={sendPost} type='submit'>
