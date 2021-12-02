@@ -3,6 +3,8 @@ import React from 'react';
 import './Sidebar.css';
 
 function Sidebar() {
+
+
   const recentItem = (topic) => (
     <div className='sidebar-recentItem'>
       <span className='sidebar-hash'>#</span>

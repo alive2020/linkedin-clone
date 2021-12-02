@@ -8,8 +8,17 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import meImg from './imgs/me.jpg';
+import { useDispatch } from 'react-redux';
+import { logout } from './features/userSlice';
+import { auth } from './firebase';
 
 function Header() {
+  const dispatch = useDispatch();
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <div className='header'>
       <div className='header-left'>
@@ -19,7 +28,7 @@ function Header() {
         />
         <div className='header-search'>
           <SearchIcon />
-          <input type='text' />
+          <input placeholder='Search' type='text' />
         </div>
       </div>
       <div className='header-right'>
@@ -32,6 +41,7 @@ function Header() {
           avatar='https://media-exp1.licdn.com/dms/image/D5635AQGO4Z9G8JFH_A/profile-framedphoto-shrink_400_400/0/1632475633031?e=1638360000&v=beta&t=Y2EHk-yLzNgZ-0d9U3et3aqhNqGzjgoxdwx4lS2BBWY'
           //   avatar={meImg}
           title='Me'
+          onClick={logoutOfApp}
         />
       </div>
     </div>

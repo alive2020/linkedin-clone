@@ -1,7 +1,4 @@
 import firebase from 'firebase';
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCZVpDqLPO1RuwhY6KXZUaQ6YrDUS-AzAc',
@@ -13,12 +10,9 @@ const firebaseConfig = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-// const firebaseApp = initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
-// const db = getFirestore(app);
 
 const auth = firebase.auth();
-// const auth = getAuth();
 
 export { db, auth };
